@@ -9,6 +9,7 @@ body {
   background: #3061CA;
   background: linear-gradient(-169deg, #8BC0F1 0%, #4F73F0 99%);
   min-height: 100vh;
+  overflow-y: scroll;
 }
 
 code {

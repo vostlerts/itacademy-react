@@ -13,6 +13,16 @@
     color: white;
 }
 
+.container.info {
+    height: 0;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.container.info.show {
+    height: 367px;
+}
+
 .container.info .title {
     margin-top: 50px;
     margin-bottom: 30px;

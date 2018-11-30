@@ -9,8 +9,9 @@ export default class WeekWeatherItem extends Component {
 
         switch (value) {
             case "01d":
-            case "01n":
                 return (<div className={"icon01d"}></div>);
+            case "01n":
+                return (<div className={"icon01n"}></div>);
 
             case "02d":
             case "02n":

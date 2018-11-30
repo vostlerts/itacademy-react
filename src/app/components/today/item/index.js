@@ -9,8 +9,9 @@ export default class TodayWeatherItem extends Component {
 
         switch (value) {
             case "01d":
-            case "01n":
                 return (<div className={"icon01d"}></div>);
+            case "01n":
+                return (<div className={"icon01n"}></div>);
 
             case "02d":
             case "02n":
@@ -43,12 +44,14 @@ export default class TodayWeatherItem extends Component {
 
     render() {
         let isNow = this.props.data.idx === 0;
+        let isActive = this.props.active;
+        let isOpenInfo = this.props.open;
         let weather = this.props.data.weather;
         let dt = weather.dt;
         let date = moment.unix(dt).utc().format('HH:mm');
 
         return (
-            <div className={`today_weather__item ${isNow ? 'active' : ''}`}>
+            <div className={`today_weather__item ${isNow ? 'active' : ''} ${(isActive && isOpenInfo) ? 'set' : ''}`} onClick={this.props.onClick}>
                 <div className={"now"} hidden={!isNow}>NOW</div>
                 <div className={`time ${!isNow ? 'pt' : ''}`}>{(date)}</div>
                 <div className={"tempBlock"}>
@@ -58,6 +61,7 @@ export default class TodayWeatherItem extends Component {
                 <div className={"icon d-flex justify-center align-center"}>
                     {this.getIcon(weather.weather[0].icon)}
                 </div>
+                <div className={`isSet ${(isActive && isOpenInfo) ? '' : 'hide'}`}></div>
             </div>
         )
     }

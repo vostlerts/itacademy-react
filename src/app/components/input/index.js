@@ -22,7 +22,8 @@ export default class Input extends Component {
     render() {
         return(
             <div className={`input ${this.props.className}`}>
-                <input type={"text"} placeholder={"City name"} onKeyUp={this.onKeyUp} onChange={this.onChange}/>
+                <label htmlFor={"city_name"}>CITY NAME:</label>
+                <input id={"city_name"} type={"text"} placeholder={"HRODNA"} onKeyUp={this.onKeyUp} onChange={this.onChange}/>
             </div>
         )
     }
