@@ -1,0 +1,15 @@
+header {
+    background: rgba(255, 255, 255, 0.2);
+    height: 80px;
+    color: white;
+}
+
+header .container {
+    height: inherit;
+}
+
+header .logo {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
