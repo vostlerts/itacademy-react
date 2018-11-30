@@ -45,7 +45,7 @@ export default class TodayWeatherItem extends Component {
         let isNow = this.props.data.idx === 0;
         let weather = this.props.data.weather;
         let dt = weather.dt;
-        let date = moment.unix(dt).format('HH:mm');
+        let date = moment.unix(dt).utc().format('HH:mm');
 
         return (
             <div className={`today_weather__item ${isNow ? 'active' : ''}`}>
@@ -53,7 +53,7 @@ export default class TodayWeatherItem extends Component {
                 <div className={`time ${!isNow ? 'pt' : ''}`}>{(date)}</div>
                 <div className={"tempBlock"}>
                     <div className={"temp"}>{(this.getTempInCelsies(weather.main.temp))}</div>
-                    <div className={"typeTemp"}>℃</div>
+                    <div className={"typeTemp"}>°</div>
                 </div>
                 <div className={"icon d-flex justify-center align-center"}>
                     {this.getIcon(weather.weather[0].icon)}

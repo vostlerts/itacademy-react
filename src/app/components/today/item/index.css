@@ -67,9 +67,9 @@
 }
 .today_weather__item .tempBlock .typeTemp {
     color: white;
-    font-size: 15px;
+    font-size: 55px;
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 7px;
 }
 .today_weather__item.active .tempBlock .typeTemp {
     color: #4372D7;

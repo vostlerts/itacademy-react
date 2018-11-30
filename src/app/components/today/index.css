@@ -13,6 +13,45 @@
     color: white;
 }
 
+.container.info .title {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #E7C971;
+    width: 100%;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container.info .info {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.container.info .info .row {
+    display: flex;
+}
+
+.container.info .info .row > div {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.container.info .info .row > .label {
+    flex: 0 50%;
+    padding: 10px 20px;
+    text-align: right;
+}
+.container.info .info .row > .value {
+    padding: 10px 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+    flex: 0 50%;
+}
+
 .today .weather {
     flex: 0 70%;
 }

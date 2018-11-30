@@ -45,8 +45,8 @@ export default class WeekWeatherItem extends Component {
         let isNow = this.props.data.idx === 0;
         let weather = this.props.data.weather;
         let dt = weather.dt;
-        let dddd = moment.unix(dt).format('dddd');
-        let date = moment.unix(dt).format('DD/MM');
+        let dddd = moment.unix(dt).utc().format('dddd');
+        let date = moment.unix(dt).utc().format('DD/MM');
 
         return (
             <div className={`week_weather__item ${isNow ? 'active' : ''}`}>
