@@ -1,0 +1,68 @@
+.week_weather__item {
+    width: 125px;
+    padding: 0 13px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.week_weather__item:first-of-type {
+    border-left: none;
+}
+
+.week_weather__item .dddd,
+.week_weather__item .date {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.week_weather__item.active .dddd,
+.week_weather__item.active .date {
+    color: white;
+}
+
+.week_weather__item .temp {
+    margin: 20px 0;
+    font-size: 36px;
+    color: white;
+    letter-spacing: -2.5px;
+    text-align: center;
+}
+
+.week_weather__item .icon {
+    opacity: 0.5;
+    height: 50px;
+}
+
+.week_weather__item.active .icon {
+    opacity: 1;
+}
+
+.week_weather__item .icon .icon01d {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url('../../../images/icons/01d.svg') no-repeat center center;
+    mask: url('../../../images/icons/01d.svg') no-repeat center center;
+}
+.week_weather__item .icon .icon02d {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url('../../../images/icons/02d.svg') no-repeat center center;
+    mask: url('../../../images/icons/02d.svg') no-repeat center center;
+}
+.week_weather__item .icon .icon10d {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url('../../../images/icons/10d.svg') no-repeat center center;
+    mask: url('../../../images/icons/10d.svg') no-repeat center center;
+}
+.week_weather__item .icon .icon11d {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url('../../../images/icons/11d.svg') no-repeat center center;
+    mask: url('../../../images/icons/11d.svg') no-repeat center center;
+}

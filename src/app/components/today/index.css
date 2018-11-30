@@ -1,0 +1,18 @@
+.today {
+    min-height: 400px;
+}
+.today .info {
+    flex: 0 30%;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    padding: 0 0 50px 0;
+}
+.today .info .city_name {
+    font-size: 70px;
+    color: white;
+}
+
+.today .weather {
+    flex: 0 70%;
+}

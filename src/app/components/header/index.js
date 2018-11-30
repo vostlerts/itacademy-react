@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import {FETCHING_API_DATA} from "../../utils/actions_types";
+
 import './index.css';
 import Input from '../input';
 
+const mapDispatchToProps = dispatch => {
+    return {
+        getWeather: payload => dispatch({ type: FETCHING_API_DATA, payload, dispatch })
+    };
+};
+
 class Header extends Component {
+
+    onSubmitSearch(name_city) {
+        this.props.getWeather(name_city);
+    }
+
     render() {
         return (
             <header>
@@ -12,17 +25,11 @@ class Header extends Component {
                     <div className={"logo"}>
                         Weather App
                     </div>
-                    <Input className={"search"} onSubmit={ev => connect()(ev)} />
+                    <Input className={"search"} onSubmit={(ev) => this.onSubmitSearch(ev)} />
                 </div>
             </header>
         )
     }
 }
 
-function mapStateToProps (state) {
-    return {
-        payload: state
-    }
-}
-
-export default connect(mapStateToProps)(Header)
+export default connect(null, mapDispatchToProps)(Header)
