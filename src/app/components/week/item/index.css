@@ -45,6 +45,14 @@
     -webkit-mask: url('../../../images/icons/01d.svg') no-repeat center center;
     mask: url('../../../images/icons/01d.svg') no-repeat center center;
 }
+.week_weather__item .icon .icon01n {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: url('../../../images/icons/01n.svg') no-repeat center center;
+    mask: url('../../../images/icons/01n.svg') no-repeat center center;
+    mask-size: 40px;
+}
 .week_weather__item .icon .icon02d {
     background-color: white;
     width: 100%;

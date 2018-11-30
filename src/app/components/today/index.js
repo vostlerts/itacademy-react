@@ -8,6 +8,12 @@ import TodayWeatherItem from './item';
 
 class TodayWeather extends Component {
 
+    state = {
+        now: this.props.weatherData.weather[0],
+        idxOpened: 0,
+        isOpenFullInfo: false
+    };
+
     getTempInCelsies(temp) {
         return Math.round(temp - 273.15);
     }
@@ -22,14 +28,13 @@ class TodayWeather extends Component {
         let city = this.props.weatherData.city;
         let weather = this.props.weatherData.weather;
         weather = weather.slice(0, 5);
-        let now = weather[0];
 
         return (
             <div>
                 <div className={"container today d-flex align-center"}>
                     <div className={"info"}>
                         <div className={"name_of_day"}>
-                            {(moment.unix(now.dt).utc().format('dddd DD/MM'))}
+                            {(moment.unix(this.state.now.dt).utc().format('dddd DD/MM'))}
                         </div>
                         <div className={"city_name"}>
                             {(city.name)}
@@ -40,11 +45,23 @@ class TodayWeather extends Component {
                     </div>
                     <div className={"weather d-flex"}>
                         {
-                            weather.map((weather, idx) => (<TodayWeatherItem key={idx} data={{weather, idx}} />))
+                            weather.map((weather, idx) => (
+                                <TodayWeatherItem
+                                    key={idx}
+                                    data={{weather, idx}}
+                                    open={ this.state.isOpenFullInfo }
+                                    active={ this.state.idxOpened === idx }
+                                    onClick={(ev) => this.setState({
+                                        now: weather,
+                                        idxOpened: idx,
+                                        isOpenFullInfo: (this.state.idxOpened === idx) ? !this.state.isOpenFullInfo : true
+                                    })}
+                                />
+                            ))
                         }
                     </div>
                 </div>
-                <div className={"container info"}>
+                <div className={`container info ${ ((this.state.isOpenFullInfo) ? 'show animated bounceIn' : '') }`}>
                     <div className={"title"}>
                         FULL INFO
                     </div>
@@ -54,7 +71,7 @@ class TodayWeather extends Component {
                                 Min TEMP
                             </div>
                             <div className={"value"}>
-                                {(`${this.getTempInCelsies(now.main.temp_min)}°`)}
+                                {(`${this.getTempInCelsies(this.state.now.main.temp_min)}°`)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -62,7 +79,7 @@ class TodayWeather extends Component {
                                 Max TEMP
                             </div>
                             <div className={"value"}>
-                                {(`${this.getTempInCelsies(now.main.temp_max)}°`)}
+                                {(`${this.getTempInCelsies(this.state.now.main.temp_max)}°`)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -70,7 +87,7 @@ class TodayWeather extends Component {
                                 Description
                             </div>
                             <div className={"value"}>
-                                {(now.weather[0].description)}
+                                {(this.state.now.weather[0].description)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -78,7 +95,7 @@ class TodayWeather extends Component {
                                 Pressure
                             </div>
                             <div className={"value"}>
-                                {(`${now.main.pressure} hPa`)}
+                                {(`${this.state.now.main.pressure} hPa`)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -86,7 +103,7 @@ class TodayWeather extends Component {
                                 Clouds
                             </div>
                             <div className={"value"}>
-                                {(`${now.clouds.all} %`)}
+                                {(`${this.state.now.clouds.all} %`)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -94,7 +111,7 @@ class TodayWeather extends Component {
                                 Wind
                             </div>
                             <div className={"value"}>
-                                {(`${now.wind.speed} m/s | ${this.getDirectionWind(now.wind.deg)}`)}
+                                {(`${this.state.now.wind.speed} m/s | ${this.getDirectionWind(this.state.now.wind.deg)}`)}
                             </div>
                         </div>
                         <div className={"row"}>
@@ -102,7 +119,7 @@ class TodayWeather extends Component {
                                 humidity
                             </div>
                             <div className={"value"}>
-                                {(`${now.main.humidity} %`)}
+                                {(`${this.state.now.main.humidity} %`)}
                             </div>
                         </div>
                     </div>

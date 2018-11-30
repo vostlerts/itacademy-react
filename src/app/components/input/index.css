@@ -1,3 +1,12 @@
+.input label {
+    height: 22px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+
 .input input {
     border: 2px solid #4263A9;
     padding: 10px;
@@ -18,4 +27,9 @@
     outline: none;
     background: white;
     color: #4263A9;
+}
+
+.input input:focus::placeholder,
+.input input:active::placeholder {
+    color: white;
 }

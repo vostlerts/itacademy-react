@@ -9,7 +9,7 @@ import {FETCHING_API_DATA} from "../../utils/actions_types";
 class Weather extends Component {
 
     getDefaultCity() {
-        this.props.getWeather(this.props.defaultCity);
+        this.props.getWeather(window.localStorage.getItem('defaultCity') || this.props.defaultCity);
     }
 
     componentDidMount() {
@@ -49,6 +49,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 function mapStateToProps (state) {
+    if (state && !state.error) {
+        window.localStorage.setItem('defaultCity', state.city.name);
+    }
     return {
         weather: state
     }
